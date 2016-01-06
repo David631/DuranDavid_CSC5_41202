@@ -1,8 +1,8 @@
 /* 
     File:   main.cpp
     Author: David Duran
-    Created on January 4, 2016, 10:18 AM
-    Purpose: Check out IDE, Helloworld
+    Created on January 5, 2016, 06:40 AM
+    Purpose: Setup for Home LDE
  */
 
 //System Libraries
