@@ -11,8 +11,8 @@ using namespace std;
 //User Libraries
 
 //Global Constant
-const char  wtBill=1;//Weight in grams
-const float cnvLbs=1.0f/453.5f;//Conversion from grams to lbs
+const char  WTBILL=1;//Weight in grams
+const float CNVLBS=1.0f/453.5f;//Conversion from grams to lbs
 
 //Function Prototypes
 
@@ -31,7 +31,8 @@ int main (int argc, char** argv) {
     cin>>denom;
     
     //Calculate the total
-    nPerps=cnvLbs*amtStl*wtBill/denom/wtPers;
+    nPerps=CNVLBS*amtStl*WTBILL/denom/wtPers;
+    nPerps=nPerps+1;
     
     //Output the results
     cout<<"Amount Desire = $"<<amtStl<<endl;
