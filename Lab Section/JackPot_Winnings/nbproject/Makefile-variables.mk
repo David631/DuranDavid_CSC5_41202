@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=helloworld
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/helloworld
+CND_ARTIFACT_NAME_Debug=jackpot_winnings
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/jackpot_winnings
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=helloworld.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/helloworld.tar
+CND_PACKAGE_NAME_Debug=jackpotwinnings.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/jackpotwinnings.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=helloworld
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/helloworld
+CND_ARTIFACT_NAME_Release=jackpot_winnings
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/jackpot_winnings
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=helloworld.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/helloworld.tar
+CND_PACKAGE_NAME_Release=jackpotwinnings.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/jackpotwinnings.tar
 #
 # include compiler specific variables
 #
