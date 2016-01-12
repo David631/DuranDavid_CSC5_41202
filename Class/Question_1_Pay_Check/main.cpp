@@ -3,6 +3,7 @@
         Author: David Duran
         Created on January 11, 2016, 11:30 AM
         Purpose: Question 2 PayCheck
+        Version 2.0
      */
      
     //System Libraries
@@ -18,32 +19,19 @@
     //Execution Begins Here
     int main(int argc, char** argv) {
         //Declare and initialize variables
-        int PAYRATE=10;
-        int HRSWRKD=30;
-        int HRSWRKD2=50;
-        int OVRTIME;
-        int EACHHR;
-        int payRate;
+        unsigned char ovrTime=40;
+        unsigned char payRate=10;
+        unsigned short hrsWrkd;
      
-        float payChk=PAYRATE*HRSWRKD;
+        cout<<"Input the Hours Worked for Paycheck"<<endl;
+        cin>>hrsWrkd;
      
         //Create Heading
-        OVRTIME>40;
-        EACHHR>40;
-        payRate=1.5*PAYRATE;
-     
-        cout<<"Worker1= "<<payChk<<endl;
-        cout<<"Worker2= "<<payChk<<endl;
-     
-     
-        //first row
-     
-     
-     
-        //Swap using temp
-     
-        //Swap using exclusive or operator
-     
+        cout<<"The Hours Worked is "<<static_cast<int>(hrsWrkd)<<"(hrs)"<<endl;
+        unsigned short payCheck=(hrsWrkd>=ovrTime)?
+                        ovrTime*payRate+(hrsWrkd-ovrTime)*1.5*payRate:
+                        hrsWrkd*payRate;
+        cout<<"Your Paycheck = $"<<payCheck<<endl;
      
         //Exit stage right
         return 0;
