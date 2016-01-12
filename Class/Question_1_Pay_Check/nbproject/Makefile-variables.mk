@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=q1
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/q1
+CND_ARTIFACT_NAME_Debug=question_1_pay_check
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/question_1_pay_check
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=q1.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/q1.tar
+CND_PACKAGE_NAME_Debug=question1paycheck.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/question1paycheck.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=q1
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/q1
+CND_ARTIFACT_NAME_Release=question_1_pay_check
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/question_1_pay_check
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=q1.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/q1.tar
+CND_PACKAGE_NAME_Release=question1paycheck.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/question1paycheck.tar
 #
 # include compiler specific variables
 #
