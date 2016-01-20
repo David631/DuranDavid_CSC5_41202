@@ -2,7 +2,7 @@
     File:   main.cpp
     Author: David Duran
     Created on January 19, 2016, 11:44 AM
-    Purpose: Pie
+    Purpose: Finding the finite sum for Pie
  */
 
 //System Libraries
@@ -14,6 +14,7 @@ using namespace std;
 //User Libraries
 
 //Global Constants
+const float PI=4*atan(1);
 
 //Function Prototypes
 
@@ -21,22 +22,28 @@ using namespace std;
 int main(int argc, char** argv) {
     //Problem to Solve
     cout<<endl<<"Savitch 8thEd Chap3 Prob12"<<endl<<endl;
-    cout<<endl<<"The Fibonacci Sequence"<<endl<<endl;
+    cout<<endl<<"The finite sum for PI"<<endl<<endl;
+    
     //Declare and initialize variables
-    const unsigned char nTerms=13;
-    float pie=22/7f
+    unsigned int nTerms;
+    float apprxPI=1;
+    char sign=-1;
     
     //Input the Value x
-    cout<<"Input x of e^x computation"<<endl;
-    cin>>x;
+    cout<<"Input number of Terms to Approximate PI"<<endl;
+    cin>>nTerms;
     
     //calculate e^x
-    for(nTerm=1;term>tol;term*=x/nTerm++,etox=+term);
+    for(int i=2,j=3;i<=nTerms;i++,j+=2){
+        apprxPI+=(sign/static_cast<float>(j));
+        sign*=-1;
+    }
+    apprxPI*=4;
     
     //Output the results
-    cout<<"The exact value of e^"<<x<<"="<<exp(x)<<endl;
-    cout<<"The number of terms it took to approx e^"<<x<<"="<<nTerm<<endl;
-    cout<<"The approx value of e^"<<x<<"="<<etox<<endl<<endl;
+    cout<<"The exact  value of PI="<<PI<<endl;
+    cout<<"The number of terms it took to approx PI="<<nTerms<<endl;
+    cout<<"The approx value of PI="<<apprxPI<<endl<<endl;
     
     
     //Exit stage right
