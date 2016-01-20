@@ -1,8 +1,9 @@
 /* 
-    Version: 1
     Author: David Duran
     Created on January 20, 2016, 11:13 AM
     Purpose: Table of Salary Doubling starting at a penny
+             Double is required because number of significant digits
+             Anything larger than $99,999.99 requires a double
  */
 
 //System Libraries
@@ -24,7 +25,7 @@ int main(int argc, char** argv) {
    
     //Declare Variables
     unsigned int salary=1;      //Salary starting at a penny
-    float totlPay=salary;         //Total Pay by summing the salary
+    double totlPay=salary;         //Total Pay by summing the salary
     
     //Loop to generate the Salary Table and Total Paid
     cout<<" Day        $Salary         $Total"<<endl;
