@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
     cout<<"  "<<prob1<<endl;
     cout<<"+ "<<prob2<<endl;
     cout<<"------------"<<endl;
-    cin>>answer                                   //Input your answer
+    cin>>answer;                                   //Input your answer
     cout<<endl;
     cout<<"The correct answer is= "<<result<<endl;//Outputs actual result
     
