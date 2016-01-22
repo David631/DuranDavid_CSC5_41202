@@ -18,10 +18,13 @@ using namespace std;
 
 // Execution Begins Here
 int main(int argc, char** argv) {
+    //Problem to Solve
+    cout<<endl<<"Gaddis 8thEd Chap4 Prob3"<<endl<<endl;
+    cout<<endl<<"The Magic Dates"<<endl<<endl;
     //Declare and initialize variables
-    int month,day,year;//Month, Day, Year
-    int magic;         //Month*Day
-    
+    int month,day,year;//Month Day Year
+    int magic;         //Month * Day = Year
+
     //Input data
     cout<<"Insert Month in numeric form"<<endl;
     cin>>month;
@@ -29,17 +32,15 @@ int main(int argc, char** argv) {
     cin>>day;
     cout<<"Insert a two-digit year"<<endl;
     cin>>year;
-    
+
     //Calculate or map inputs to outputs
-    magic=month*day;
-    
+    magic=month*day;//To calculate if Month*Day is equal to the year
+
     if(magic==year){
-        cout<<"This Date is Magic!"<<endl;
+       cout<<"This Date is Magic!"<<endl;
     }else{
-        cout<<"This Date is not Magic!"<<endl;
+       cout<<"This Date is not Magic!"<<endl;
     }
-    
-    //Output the results
     
     //Exit stage right
     return 0;

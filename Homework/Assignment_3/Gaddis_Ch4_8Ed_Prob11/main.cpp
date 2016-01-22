@@ -5,8 +5,8 @@
  */
 
 //System Libraries
-#include <iostream>
-#include <iomanip>
+#include <iostream>//I/O
+#include <iomanip> //Formatting
 #include <cstdlib>
 #include <ctime>
 using namespace std;

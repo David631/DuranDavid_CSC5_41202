@@ -14,7 +14,6 @@ using namespace std;
 //User Libraries
 
 //Global Constants
-const float PI=4*atan(1);
 
 //Function Prototypes
 
@@ -28,7 +27,8 @@ int main(int argc, char** argv) {
     unsigned int nTerms;
     float apprxPI=1;
     char sign=-1;
-    
+    const float PI=4*atan(1);
+
     //Input the Value x
     cout<<"Input number of Terms to Approximate PI"<<endl;
     cin>>nTerms;
