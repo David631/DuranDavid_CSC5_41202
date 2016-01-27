@@ -26,6 +26,7 @@ float save4(float,float,int);      //For-Loops Banking Implementation
 float save5(float,float,int);      //Recursion 
 float save6(float,int,float=0.05f);//Defaulted save Function
 float save7(float,float,int);      //For-Loops and static variable
+void save8(float,float,int,float); //For-Loops Banking Implementation
 
 // Execution Begins Here
 int main(int argc, char** argv) {
@@ -59,8 +60,11 @@ int main(int argc, char** argv) {
         <<save6(pv,nComp)<<endl;
     cout<<"The Savings using For-Loops and Static Variable   = $"
         <<save7(pv,intRate/PERCENT,nComp)<<endl;
-    cout<<"The Savings using For-Loops and Static Variable   = $"
-        <<save7(pv,intRate/PERCENT,nComp)<<endl;
+    float futrVal;
+    save8(pv,intRate/PERCENT,nComp,futrVal);
+    cout<<"Next Function output is pass by reference"<<endl;
+    cout<<"The Savings using For Loops Banking Version       = $"
+            <<futrVal<<endl;
     //Exit stage right
     return 0;
 }
@@ -177,4 +181,23 @@ float save7(float p,float i,int n){
     cout<<"This Function Save 7 Contains a Static Counter = "
             <<nCalls<<endl;
     return p;
+}
+
+/******************************************************************************/
+/*                                   SAVE4                                    */
+/******************************************************************************/
+//Inputs
+//p->Present Value $'s
+//i->Interest Rate %
+//n->Number of compounding periods
+//Output
+//fv->Future Value $'s
+//Note: Using the loop function Banking Implementation
+//      with a pass by reference 
+void save8(float p,float i,int n,float &fv){
+    int ip=p*PERCENT;//Place the value in pennies
+    for(int years=1;years<=n;years++){
+        ip*=(1+i);
+    }
+    p=static_cast<float>(ip)/PERCENT;
 }
