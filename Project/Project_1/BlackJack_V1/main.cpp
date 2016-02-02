@@ -6,59 +6,110 @@
  */
 
 //System Libraries
-#include <iostream>//I/O
-#include <ctime>//srand and rand function
-#include <cstdlib>//time to set the random number seed
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+
 using namespace std;
 
-//User Libraries
+//prototypes
 
-//Global Constants
+int main(int argc, char** argv){
+    //Declare Variables
+       char keepPlaying = 'n'; //loop control variable
 
-//Function Prototypes
+       do {
+              play21();
+          
+              //keep playing?
+             cout << "Do you want to play another hand (y/n)?";
+             cin >> keepPlaying;
+     } while(keepPlaying == 'Y' || keepPlaying == 'y');
 
-// Execution Begins Here
-int main(int argc, char** argv) {
-    //Set the random number seed
-    srand(static_cast<unsigned int>(time(0)));
-    //Declare and initialize variables
-    const unsigned short GAMES=36000;//Max number of throws
-    //Frequency of our dice throws
-    unsigned short wins=0,losses=0;
-    
-    //Input data
-    
-    //Throw the dice
-    for(int game=1;game<=GAMES;game++){
-        char die1=rand()%6+1;//Number between [1,6]
-        char die2=rand()%6+1;//Number between [1,6]
-        char sum=die1+die2;
-        if(sum==2||sum==3||sum==12)losses++;
-        else if(sum==7||sum==11)wins++;
-        else{
-            //Roll again
-            bool kpRln=true;
-            do{
-                die1=rand()%6+1;//Number between [1,6]
-                die2=rand()%6+1;//Number between [1,6]
-                char sum2=die1+die2;
-                if(sum==sum2){wins++;kpRln=false;}
-                if(sum2==7){losses++;kpRln=false;}
-            }while(kpRln);
-            
+
+        //play one hand of 21
+
+        //randomize the cards
+        srand((int) time(0));
+
+       // deal the cards
+         int person = dealCards(2, "Your Cards:");
+         cout << " = " << person << endl;
+         int house = dealCards(2, "Computers Cards:");
+         cout << " = " << house << endl;
+
+        // Ask if human wants a hit and keep hitting...
+        hit(person);
+        cout << endl;
+
+       //Determine if computer takes a hit
+       while ((house < person) && (house <= 21) && (person <= 21))
+	   {
+               house += dealCards(1, "The Computer takes a card ");
+               cout << endl;
         }
-    }
-    
-    //Output the results
-    cout<<"Out of "<<GAMES<<" played"<<endl;
-    cout<<"You won "<<wins<<" games and "<<endl;
-    cout<<"You lost "<<losses<<" games"<<endl;
-    cout<<"Percentage wise"<<endl;
-    cout<<"You won "<<100.f*wins/GAMES<<"% games and "<<endl;
-    cout<<"You lost "<<100.0f*losses/GAMES<<"% games"<<endl;
-    cout<<"Your wins and losses total = "<<wins+losses<<endl;
 
-    //Exit stage right
-    return 0;
+       //show who won....
+       determineWinner(person, house);
+
+
+//Compare the scores to see who won
+		if (humanScore == 21)
+			cout << "You have 21. You win!" << endl;
+		else if ((humanScore < 21) && (humanScore > houseScore))
+			cout << "You have the closer hand to 21. You win!" << endl;
+		else 
+			cout << "The computer wins, sorry try again." << endl;
+
+	
+	int return_value = 0;
+	int value = 0;
+
+	for (int a = 0; a <= numberOfCards; a++)
+	{
+		
+		
+		int cards = a; 
+		while(cards--)
+			{
+				value = Random(0,10); 
+				cout << value << " "; 
+				if(cards) 
+					cout << " , ";
+				return_value += value;
+				}
+        }
+
+
+
+	int cardCount = 0;
+	char wantCard = "y" || "n";
+	int cardTotal = 0;
+	cardTotal = playerScore;
+	cout << "Would you like another card?"; 
+	while (wantCard == 'Y' || wantCard == 'y')
+	{
+		if ((cardTotal > 0 ) && (cardTotal < 21))
+		cardCount += 1;
+		cardTotal += Random(0,10); 
+		cout << "Your total is: " << cardTotal;
+		cout << "Do you want another card?";
+		cin >> wantCard;
+		if (wantCard == 'Y' || wantCard == 'y')
+			cout << cardTotal + dealCards(1, "You take a card."); // adds humanScore to dealCard()
+		else 
+			cout << "You decide to stand";
+			
+		if (cardTotal > 21) 
+			cout << "You have gone over 21, You Lose";
+	}
+
+		
+
+
+
+//returns a random number within the given boundary
+	return 1 + rand() % (upperLimit - lowerLimit + 1);
+        return 0;
 }
-
