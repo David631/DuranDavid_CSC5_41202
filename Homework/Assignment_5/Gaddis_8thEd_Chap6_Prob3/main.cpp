@@ -17,12 +17,11 @@ using namespace std;
 
 //Function Prototypes
 float getSale(float,float,float,float);
-void fndHigh(float &,float &,float &,float &);
+void fndHigh(float,float,float,float);
 // Execution Begins Here
 int main(int argc, char** argv) {
     //Declare and initialize variables
     float ne,nw,se,sw;
-    
     
     //Input data
 
@@ -76,7 +75,7 @@ float getSale(float ne,float nw,float se,float sw){
 /******************************************************************************/
 /*                              Display Data                                  */
 /******************************************************************************/
-void fndHigh(float &ne,float &nw,float &se,float &sw){
+void fndHigh(float ne,float nw,float se,float sw){
     if(ne>nw&&ne>se&&ne>sw){
         cout<<"Highest Sales is: NorthEast"<<endl;
         cout<<"Sales Figure: "<<ne<<endl;
