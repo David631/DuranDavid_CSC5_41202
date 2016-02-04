@@ -2,7 +2,7 @@
     File:   main.cpp
     Author: David Duran
     Created on February 03, 2016, 08:20 AM
-    Purpose: Rectangle Area--Complete the Program
+    Purpose: Winning Division
  */
 
 //System Libraries
@@ -16,7 +16,7 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
-float getSale(float,float,float,float);
+float getSale(float&,float&,float&,float&);
 void fndHigh(float,float,float,float);
 // Execution Begins Here
 int main(int argc, char** argv) {
@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
 /******************************************************************************/
 /*                                 Get Length                                 */
 /******************************************************************************/
-float getSale(float ne,float nw,float se,float sw){
+float getSale(float &ne,float &nw,float &se,float &sw){
     cout<<"Input Yearly sales for NorthEast"<<endl;
     cin>>ne;
     if(ne>=0.00f){
@@ -77,17 +77,21 @@ float getSale(float ne,float nw,float se,float sw){
 /******************************************************************************/
 void fndHigh(float ne,float nw,float se,float sw){
     if(ne>nw&&ne>se&&ne>sw){
-        cout<<"Highest Sales is: NorthEast"<<endl;
-        cout<<"Sales Figure: "<<ne<<endl;
+        cout<<endl<<"Highest Sales is: NorthEast"<<endl;
+        cout<<"Sales Figure Quarterly: "<<ne/4<<endl;
+        cout<<"Sales Figure Yearly   : "<<ne<<endl;
     }else if(nw>ne&&nw>se&&nw>sw){
-        cout<<"Highest Sales is: NorthWest"<<endl;
-        cout<<"Sales Figure: "<<nw<<endl;
+        cout<<endl<<"Highest Sales is: NorthWest"<<endl;
+        cout<<"Sales Figure Quarterly: "<<nw/4<<endl;
+        cout<<"Sales Figure Yearly   : "<<nw<<endl;
     }else if(se>nw&&se>ne&&se>sw){
-        cout<<"Highest Sales is: SouthEast"<<endl;
-        cout<<"Sales Figure: "<<se<<endl;
+        cout<<endl<<"Highest Sales is: SouthEast"<<endl;
+        cout<<"Sales Figure Quarterly: "<<se/4<<endl;
+        cout<<"Sales Figure Yearly   : "<<se<<endl;
     }else if(sw>nw&&sw>se&&sw>ne){
-        cout<<"Highest Sales is: SouthWest"<<endl;
-        cout<<"Sales Figure: "<<sw<<endl;
+        cout<<endl<<"Highest Sales is: SouthWest"<<endl;
+        cout<<"Sales Figure Quarterly: "<<sw/4<<endl;
+        cout<<"Sales Figure Yearly   : "<<sw<<endl;
     }else{
         cout<<"Unable to Determine Highest Sales"<<endl;
     }
