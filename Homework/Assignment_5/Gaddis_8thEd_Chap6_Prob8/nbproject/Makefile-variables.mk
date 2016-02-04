@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Debug=craps_v5
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/craps_v5
+CND_ARTIFACT_NAME_Debug=gaddis_8thed_chap6_prob8
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/gaddis_8thed_chap6_prob8
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Debug=crapsv5.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/crapsv5.tar
+CND_PACKAGE_NAME_Debug=gaddis8thedchap6prob8.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_4.x-Windows/package/gaddis8thedchap6prob8.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin_4.x-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_4.x-Windows
-CND_ARTIFACT_NAME_Release=craps_v5
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/craps_v5
+CND_ARTIFACT_NAME_Release=gaddis_8thed_chap6_prob8
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_4.x-Windows/gaddis_8thed_chap6_prob8
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin_4.x-Windows/package
-CND_PACKAGE_NAME_Release=crapsv5.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/crapsv5.tar
+CND_PACKAGE_NAME_Release=gaddis8thedchap6prob8.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin_4.x-Windows/package/gaddis8thedchap6prob8.tar
 #
 # include compiler specific variables
 #
