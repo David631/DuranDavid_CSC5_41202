@@ -1,8 +1,8 @@
 /* 
     File:   main.cpp
     Author: David Duran
-    Created on January 19, 2016, 08:32 AM
-    Purpose:  Menu Assignment 3
+    Created on February 04, 2016, 09:37 PM
+    Purpose:  Menu Assignment 5
  */
 
 //System Libraries
@@ -21,6 +21,18 @@ using namespace std;
 void problem1();
 void problem2();
 void problem3();
+void problem4();
+void problem5();
+int getLgth(int);                          //Problem 1
+int getWdth(int);                          //Problem 1
+int getArea(int,int,int);                  //Problem 1
+void dsplDat(float,float,float);           //Problem 1
+float getSale(float&,float&,float&,float&);//Problem 2
+void fndHigh(float,float,float,float);     //Problem 2
+int numAccd(int&,int&,int&,int&,int&);     //Problem 3
+void findLow(int,int,int,int,int);         //Problem 3
+int coinTos(int);                          //Problem 4
+bool isPrime(int number);                  //Problem 5
 
 // Execution Begins Here
 int main(int argc, char** argv) {
@@ -31,10 +43,12 @@ int main(int argc, char** argv) {
     //Menu to Display Solution
     do{
         //Input problem to display, i.e. Menu
-        cout<<"Assignment 3 Problem Set"<<endl;
-        cout<<"Type 1 to Display Savitch 8thEd Chap3 Prob10"<<endl;
-        cout<<"Type 2 to Display Savitch 8thEd Chap3 Prob11"<<endl;
-        cout<<"Type 3 to Display Gaddis 8thEd Chap4 Prob5"<<endl;
+        cout<<"Assignment 5 Problem Set"<<endl;
+        cout<<"Type 1 to Display Gaddis 8thEd Chap6 Prob2"<<endl;
+        cout<<"Type 2 to Display Gaddis 8thEd Chap6 Prob3"<<endl;
+        cout<<"Type 3 to Display Gaddis 8thEd Chap6 Prob4"<<endl;
+        cout<<"Type 2 to Display Gaddis 8thEd Chap6 Prob8"<<endl;
+        cout<<"Type 3 to Display Gaddis 8thEd Chap6 Prob22"<<endl;
         cout<<"Type anything else to exit "<<endl<<endl;
         cin>>nSoltn;
         
@@ -43,6 +57,8 @@ int main(int argc, char** argv) {
             case 1:{problem1();break;}
             case 2:{problem2();break;}
             case 3:{problem3();break;}
+            case 4:{problem4();break;}
+            case 5:{problem5();break;}
             default:{
                 cout<<"Exiting the Program"<<endl;
                 reDsply=false;
@@ -57,115 +73,273 @@ int main(int argc, char** argv) {
 /***********************************Problem1***********************************/
 /******************************************************************************/
 void problem1(){
-    cout<<endl<<"Savitch 8thEd Chap3 Prob10"<<endl<<endl;
-    cout<<endl<<"The Fibonacci Sequence"<<endl<<endl;
-
-    //Declare Variables
-    unsigned int fi,fim1,fim2;//Desiginations in the sequence
-    unsigned short nTerms;    //Number of terms in the sequence
-    unsigned short counter;   //Current position in the sequence
-    const char DREPRO=5;        //Days to Reproduce
-    float crudWt;             //Weight to Crud
-    unsigned int nDays;       //Number of days to grow Crud
-
-    //Initialize the sequence
-    fim2=fim1=1;              //Start the Sequence
-    counter=2;                //Initialize the counter
-
-    //Input the number of terms in the sequence
-    cout<<"Input the initial weight of the crud in lbs"<<endl;
-    cin>>crudWt;
-    cout<<"How many days will the crud be allowed to grow"<<endl;
-    cin>>nDays;
-
-    //Calculate the number of terms
-    nTerms=nDays/DREPRO+1;
-
-    //Output or Calculate the output required
-    if(nTerms==1){
-        cout<<"After "<<nDays<<" days the crud weighs "
-                <<fim2*crudWt<<"(lbs)"<<endl<<endl;
-    }else if(nTerms==2){
-        cout<<"After "<<nDays<<" days the crud weighs "
-                <<fim1*crudWt<<"(lbs)"<<endl<<endl;
+    cout<<endl<<"Problem 1: Gaddis 8thEd Chap6 Prob2"<<endl;
+    //Declare and initialize variables
+    float length,width,area;
+    
+    //Input data
+    cout<<"Input Length of Rectangle"<<endl;
+    cin>>length;
+    cout<<"Input Width of Rectangle"<<endl;
+    cin>>width;
+    
+    
+    //Output the results
+    dsplDat(length,width,area);
+}
+/******************************************************************************/
+/*                                 Get Length                                 */
+/******************************************************************************/
+int getLgth(int length){
+    if(length>=0){
+        cout<<"Length is: "<<length<<endl;
     }else{
-        do{
-            fi=fim1+fim2;
-            counter++;
-            fim2=fim1;
-            fim1=fi;
-        }while(counter<nTerms);
-        cout<<"After "<<nDays<<" days the crud weighs "
-                <<fi*crudWt<<"(lbs)"<<endl<<endl;
-    }
+        cout<<"Invalid length"<<endl;
+    }return length;
+}
+
+/******************************************************************************/
+/*                                 Get Width                                  */
+/******************************************************************************/
+int getWdth(int width){
+    if(width>=0){
+        cout<<"Width is: "<<width<<endl;
+    }else{
+        cout<<"Invalid Width"<<endl;
+    }return width;
+}
+
+/******************************************************************************/
+/*                                 Get Area                                   */
+/******************************************************************************/
+int getArea(int length,int width,int area){
+    area=length*width;
+    if(area>=0){
+    cout<<"The Area of the Rectangle is: "<<area<<endl;
+    }else{
+        cout<<"Please input a different Length and Width"<<endl;
+    }return area;
+}
+
+/******************************************************************************/
+/*                              Display Data                                  */
+/******************************************************************************/
+void dsplDat(float length,float width,float area){
+    getLgth(length);
+    getWdth(width);
+    getArea(length,width,area);
 }
 /******************************************************************************/
 /***********************************Problem2***********************************/
 /******************************************************************************/
 void problem2(){
-    //Problem to Solve
-    cout<<endl<<"Savitch 8thEd Chap3 Prob10"<<endl<<endl;
-    cout<<endl<<"The Fibonacci Sequence"<<endl<<endl;
-
+    cout<<endl<<"Problem 2: Gaddis 8thEd Chap6 Prob3"<<endl;
     //Declare and initialize variables
-    float etox=1,x;//E^x
-    const unsigned char nTerms=13;
+    float ne,nw,se,sw;
+    
+    //Input data
 
-    //Input the Value x
-    cout<<"Input x of e^x computation"<<endl;
-    cin>>x;
-
-    //calculate e^x
-    for(int n=1;n<=nTerms;n++){
-        //Declare and Initialize Variables
-        unsigned int factN=1;//N and N!
-
-        //Calculate the factorial
-        for(int i=1;i<=n;i++){
-            factN*=i;
-        }
-
-        //Calculate e^x with the above factorial
-        etox+=pow(x,n)/factN;
-    }
-
+    
     //Output the results
-    cout<<"The exact value of e^"<<x<<"="<<exp(x)<<endl;
-    cout<<"The approx value of e^"<<x<<"="<<etox<<endl<<endl;
+    getSale(ne,nw,se,sw);
+    fndHigh(ne,nw,se,sw);
+}
+float getSale(float &ne,float &nw,float &se,float &sw){
+    cout<<"Input Yearly sales for NorthEast"<<endl;
+    cin>>ne;
+    if(ne>=0.00f){
+        cout<<fixed<<setprecision(2)<<endl;
+        cout<<"Quarterly Sales is: "<<ne/4<<endl;
+    }else{
+        cout<<"Invalid Number"<<endl;
+    }
+    cout<<"Input Yearly sales for NorthWest"<<endl;
+    cin>>nw;
+    if(nw>=0.00f){
+        cout<<fixed<<setprecision(2)<<endl;
+        cout<<"Quarterly Sales is: "<<nw/4<<endl;
+    }else{
+        cout<<"Invalid Number"<<endl;
+    }
+    cout<<"Input Yearly sales for SouthEast"<<endl;
+    cin>>se;
+    if(se>=0.00f){
+        cout<<fixed<<setprecision(2)<<endl;
+        cout<<"Quarterly Sales is: "<<se/4<<endl;
+    }else{
+        cout<<"Invalid Number"<<endl;
+    }
+    cout<<"Input Yearly sales for SouthWest"<<endl;
+    cin>>sw;
+    if(sw>=0.00f){
+        cout<<fixed<<setprecision(2)<<endl;
+        cout<<"Quarterly Sales is: "<<sw/4<<endl;
+    }else{
+        cout<<"Invalid Number"<<endl;
+    }
+    return ne,nw,se,sw;
+}
+
+/******************************************************************************/
+/*                              Display Data                                  */
+/******************************************************************************/
+void fndHigh(float ne,float nw,float se,float sw){
+    if(ne>nw&&ne>se&&ne>sw){
+        cout<<endl<<"Highest Sales is: NorthEast"<<endl;
+        cout<<"Sales Figure Quarterly: "<<ne/4<<endl;
+        cout<<"Sales Figure Yearly   : "<<ne<<endl;
+    }else if(nw>ne&&nw>se&&nw>sw){
+        cout<<endl<<"Highest Sales is: NorthWest"<<endl;
+        cout<<"Sales Figure Quarterly: "<<nw/4<<endl;
+        cout<<"Sales Figure Yearly   : "<<nw<<endl;
+    }else if(se>nw&&se>ne&&se>sw){
+        cout<<endl<<"Highest Sales is: SouthEast"<<endl;
+        cout<<"Sales Figure Quarterly: "<<se/4<<endl;
+        cout<<"Sales Figure Yearly   : "<<se<<endl;
+    }else if(sw>nw&&sw>se&&sw>ne){
+        cout<<endl<<"Highest Sales is: SouthWest"<<endl;
+        cout<<"Sales Figure Quarterly: "<<sw/4<<endl;
+        cout<<"Sales Figure Yearly   : "<<sw<<endl;
+    }else{
+        cout<<"Unable to Determine Highest Sales"<<endl;
+    }
 }
 /******************************************************************************/
 /***********************************Problem3***********************************/
 /******************************************************************************/
 void problem3(){
-    cout<<endl<<"Gaddis 8thEd Chap4 Prob5"<<endl<<endl;
-    cout<<endl<<"The Body Max Index Calculator"<<endl<<endl;
-
+    cout<<endl<<"Problem 3: Gaddis 8thEd Chap6 Prob4"<<endl;
     //Declare and initialize variables
-    float BMI;        //Body Max Index
-    int weight,height;//Weight in pounds, Height in inches
-
-    //Output Measurements
-    cout<<"How much do you weigh in pounds?"<<endl;
-    cin>>weight;
-    cout<<"How tall are you in inches?"<<endl;
-    cin>>height;
-
-    //Calculate BMI
-    BMI=(weight/pow(height,2))*703;//BMI Formula for USA
-
-            //Output the results
-    cout<<"Your weight is: "<<weight<<"(lbs)"<<endl;
-    cout<<"Your height is: "<<height<<"(in)"<<endl;
-    cout<<fixed<<setprecision(2)<<showpoint;
-    cout<<"Your BMI is   : "<<BMI<<endl;
-
-    //Output BMI optimal weight
-    if(BMI<18.5){
-            cout<<"You are Underweight."<<endl;
-    }else if(BMI>=18.5&&BMI<=25){
-            cout<<"You're at an Optimal Weight."<<endl;
+    int north,south,east,west,central;//Different Regions
+    
+    //Calls numAccd Function or Number of Accidents
+    numAccd(north,south,east,west,central);
+    
+    //Calls findLow Function or Find Lowest
+    findLow(north,south,east,west,central);
+}
+/******************************************************************************/
+/*                         Get Number of Accidents                            */
+/******************************************************************************/
+int numAccd(int &north,int &south,int &east,int &west,int &central){
+    cout<<"Input Number of Automobile Accidents in the North Region"<<endl;
+    cin>>north;
+    if(north>=0){
+        cout<<fixed<<setprecision(2)<<endl;
+        cout<<"Number of Automobile Accidents is: "<<north<<endl;
     }else{
-            cout<<"You're Overweight"<<endl;
+        cout<<"Invalid Number"<<endl;
     }
-    cout<<endl;
+    cout<<"Input Number of Automobile Accidents in the South Region"<<endl;
+    cin>>south;
+    if(south>=0){
+        cout<<fixed<<setprecision(2)<<endl;
+        cout<<"Number of Automobile Accidents is: "<<south<<endl;
+    }else{
+        cout<<"Invalid Number"<<endl;
+    }
+    cout<<"Input Number of Automobile Accidents in the East Region"<<endl;
+    cin>>east;
+    if(east>=0){
+        cout<<fixed<<setprecision(2)<<endl;
+        cout<<"Number of Automobile Accidents is: "<<east<<endl;
+    }else{
+        cout<<"Invalid Number"<<endl;
+    }
+    cout<<"Input Number of Automobile Accidents in the West Region"<<endl;
+    cin>>west;
+    if(west>=0){
+        cout<<fixed<<setprecision(2)<<endl;
+        cout<<"Number of Automobile Accidents is: "<<west<<endl;
+    }
+    cout<<"Input Number of Automobile Accidents in the Central Region"<<endl;
+    cin>>central;
+    if(central>=0){
+        cout<<fixed<<setprecision(2)<<endl;
+        cout<<"Number of Automobile Accidents is: "<<central<<endl;
+    }else{
+        cout<<"Invalid Number"<<endl;
+    }
+    return north,south,east,west;
+}
+
+/******************************************************************************/
+/*                              Find the Lowest                               */
+/******************************************************************************/
+void findLow(int north,int south,int east,int west,int central){
+    if(north<south&&north<east&&north<west&&north<central){
+        cout<<endl<<"Lowest Number of Accidents is: North"<<endl;
+        cout<<"Accident Figure: "<<north<<endl;
+    }else if(south<north&&south<east&&south<west&&south<central){
+        cout<<endl<<"Lowest Number of Accidents is: South"<<endl;
+        cout<<"Accident Figure: "<<south<<endl;
+    }else if(east<north&&east<south&&east<west&&east<central){
+        cout<<endl<<"Lowest Number of Accidents is: East"<<endl;
+        cout<<"Accident Figure: "<<east<<endl;
+    }else if(west<north&&west<south&&west<east&&west<central){
+        cout<<endl<<"Lowest Number of Accidents is: West"<<endl;
+        cout<<"Accident Figure: "<<west<<endl;
+    }else if(central<north&&central<south&&central<east&&central<west){
+        cout<<endl<<"Lowest Number of Accidents is: central"<<endl;
+        cout<<"Accident Figure: "<<central<<endl;
+    }else{
+        cout<<"Unable to Determine Highest Sales"<<endl;
+    }
+}
+/******************************************************************************/
+/***********************************Problem4***********************************/
+/******************************************************************************/
+void problem4(){
+    cout<<endl<<"Problem 4: Gaddis 8thEd Chap6 Prob8"<<endl;
+    //Set Random Seed
+    srand(static_cast<unsigned int>(time(0)));
+    //Declare and initialize variables
+    int games,coin;//Number of Games
+    
+    cout<<"How many times do you want to toss the coin?"<<endl;
+    cin>>games;
+    //Loop Number of Coin Tosses
+    for(int game=1;game<=games;game++){
+        coinTos(coin);
+    }
+}
+/******************************************************************************/
+/*                         Get Number of Accidents                            */
+/******************************************************************************/
+int coinTos(int coin){
+    int head,tail;
+    coin=rand()%2+1;
+    switch(coin){
+        case 1:cout<<"Heads"<<endl;break;
+        case 2:cout<<"Tails"<<endl;break;
+        default:cout<<"Try Again"<<endl;
+    }return coin;
+}
+/******************************************************************************/
+/***********************************Problem5***********************************/
+/******************************************************************************/
+void problem5(){
+    cout<<endl<<"Problem 5: Gaddis 8thEd Chap6 Prob22"<<endl;
+    //Declare and initialize variables
+    int number;
+    //Input Number to Check if it's a prime
+    cout << "Enter a Number to Check if it is a Prime: ";
+    cin >> number;
+    //Outputs if it is a Prime or not
+    if (isPrime(number)){
+	cout << number << " is prime." << endl;
+    }
+    else{
+	cout << number << " is not prime." << endl;
+    }
+}
+/******************************************************************************/
+/*                              Loop for Prime                                */
+/******************************************************************************/
+bool isPrime(int number){
+    int i;
+
+	for (i=2; i<number; i++){
+		if (number % i == 0){return false;}
+	}return true;	
 }
