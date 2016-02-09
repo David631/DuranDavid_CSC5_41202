@@ -18,6 +18,7 @@ using namespace std;
 //Global Constants
 
 //Function Prototypes
+void players(int);
 
 // Execution Begins Here
 int main(int argc, char** argv) {
@@ -37,14 +38,14 @@ int main(int argc, char** argv) {
     cout<<"How man games of 'Hazard' would you like to play"<<endl;
     cout<<"Utilize a number between 100 and 400"<<endl;
     cin>>games;
-    while(games<100||games>400){
+    while(games<100&&games>400){
         cout<<"How man games of 'Hazard' would you like to play"<<endl;
         cout<<"Utilize a number between 100 and 400"<<endl;
         cin>>games;
     }
     cout<<"Pick a number between 5-9"<<endl;
     cin>>main;
-    while(main<5||main>9){
+    while(main<5&&main>9){
     	cout<<"Pick a number between 5-9"<<endl;
     	cin>>main;
     }
