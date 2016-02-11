@@ -19,7 +19,11 @@ using namespace std;
 
 //Function Prototypes
 void dsplFil(unsigned short&,unsigned short&,unsigned short&,float&,float&);
-
+void fillAry(int [],int);
+void prntAry(int [],int,int);
+void swap(int &,int &);
+void lstSmal(int [],int,int);
+void markSrt(int [],int);
 // Execution Begins Here
 int main(int argc, char** argv) {
     //Set the random number seed
@@ -30,6 +34,8 @@ int main(int argc, char** argv) {
     unsigned int sum,sum2,main;   //Main = #5-9, sum=die1+die2, sum2=die1+die2
     unsigned short wins=0,losses=0,count=0;//Number of Wins, Losses, and Games
     char retry='y',die1,die2;     //Dice #1: 1-6,Dice #2: 1=6,Replay
+    const int SIZE=10;
+    int array[SIZE];
     ofstream out;                  //Allows the File to be read
     
     //Hazard Game Setup
@@ -38,8 +44,10 @@ int main(int argc, char** argv) {
     cin>>wallet;
     cout<<"How much $$ would you like to Bet/Game?(Limit=$1500)"<<endl;
     cin>>bet;
-    cout<<"Choose a Number between 5-9"<<endl;
-    cin>>main;
+    do{
+        cout<<"Choose a Number between 5-9"<<endl;
+        cin>>main;
+    }while(main<5&&main>9);
     bet=bet<LIMIT?bet:LIMIT;//Limits the amount able to bet
     
     //Throw Dice
@@ -107,7 +115,6 @@ int main(int argc, char** argv) {
                 die1=rand()%6+1;
                 die2=rand()%6+1;
                 sum2=die1+die2;
-                cout<<"You Roll: "<<sum<<endl;
                 switch(sum==sum2){
                     case true:{
                         count++;
@@ -120,10 +127,16 @@ int main(int argc, char** argv) {
                         cin>>retry;}
                         default:
                             if(sum2==main){
-                                cout<<"You Roll: "<<sum2<<endl;
+                                count++;
+                                losses++;
+                                wallet-=bet;
+                                kpRln=false;
                                 cout<<"Your First Roll: "<<sum<<endl;
-                                kpRln=true;
-                                if(kpRln==3){
+                                cout<<"Your Second Roll: "<<sum2<<endl;
+                                cout<<"You Lose!"<<endl;
+                                cout<<"Play Again?(y/n)"<<endl;
+                                cin>>retry;
+                                }else if(kpRln==3){
                                     count++;
                                     losses++;
                                     wallet-=bet;
@@ -133,7 +146,6 @@ int main(int argc, char** argv) {
                                     cout<<"Play Again?(y/n)"<<endl;
                                     cin>>retry;}
                             }
-                }
             }while(kpRln);
         }
     }
@@ -145,6 +157,17 @@ int main(int argc, char** argv) {
     cout<<"Percentage of Games Lost: "<<100.0f*losses/count<<"%"<<endl;
     cout<<"Current Wallet: $"<<wallet<<endl;
     cout<<"Bet/Game: "<<bet<<endl;
+    //Fill the array with random 2 digit numbers
+    fillAry(array,SIZE);
+    
+    //Print the array
+    prntAry(array,SIZE,10);
+    
+    //Test finding the smallest number in the list
+    markSrt(array,SIZE);
+            
+    //Print the array
+    prntAry(array,SIZE,10);
     dsplFil(count,wins,losses,wallet,bet);
     out.close();
     return 0;
@@ -164,4 +187,52 @@ void dsplFil(unsigned short &count,unsigned short &wins,
     out<<"Percentage of Games Lost: "<<100.0f*losses/count<<"%"<<endl;
     out<<"Current Wallet: $"<<wallet<<endl;
     out<<"Bet/Game: "<<bet<<endl;
+}
+void fillAry(int a[],int n){
+    //loop and fill the array with random numbers
+    for(int i=0;i<n;i++){ 
+        a[i]=rand()%6+1;
+    }
+}
+
+/******************************************************************************/
+/*                                      Void 2                                */
+/******************************************************************************/
+void prntAry(int a[],int n,int perLine){
+    //loop and fill the array with random numbers
+    cout<<endl;
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+        if(i%perLine==(perLine-1))cout<<endl;
+    }
+    cout<<endl;
+}
+
+/******************************************************************************/
+/*                                  Swap Variables                            */
+/******************************************************************************/
+void swap(int &a,int &b){
+    a=a^b;
+    b=a^b;
+    a=a^b;
+}
+
+/******************************************************************************/
+/*                                  Smallest in List                           */
+/******************************************************************************/
+void lstSmal(int a[],int n,int pos){
+    //Loop and compare
+    for(int i=pos+1;i<n;i++){
+        if(a[pos]>a[i])swap(a[pos],a[i]);
+    }
+}
+
+/******************************************************************************/
+/*                                                                            */
+/******************************************************************************/
+void markSrt(int a[],int n){
+    //loop and fill the array with random numbers
+    for(int i=0;i<n-1;i++){ 
+        lstSmal(a,n,i);
+    }
 }
